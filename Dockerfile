@@ -19,3 +19,5 @@ RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
 ENV ANSIBLE_HOST_KEY_CHECKING false
 ENV ANSIBLE_ROLES_PATH /ansible/playbooks/roles
 ENV PATH /ansible/bin:$PATH
+
+EXPOSE 22/tcp
