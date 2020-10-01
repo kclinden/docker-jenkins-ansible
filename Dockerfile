@@ -12,6 +12,10 @@ RUN apt update -y \
 # Install Ansible via Pip.
 RUN pip3 install $pip_packages
 
+# Configure SSH
+RUN mkdir -p ~/.ssh/ && \
+    ssh-keyscan -H ${target_host} >> ~/.ssh/known_hosts
+
 # Install Ansible inventory file.
 RUN mkdir -p /etc/ansible
 RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
